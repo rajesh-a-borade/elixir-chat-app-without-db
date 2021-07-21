@@ -1,4 +1,4 @@
-defmodule ChatWeb.ConnCase do
+defmodule ChatzWeb.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -11,7 +11,7 @@ defmodule ChatWeb.ConnCase do
   we enable the SQL sandbox, so changes done to the database
   are reverted at the end of every test. If you are using
   PostgreSQL, you can even run database tests asynchronously
-  by setting `use ChatWeb.ConnCase, async: true`, although
+  by setting `use ChatzWeb.ConnCase, async: true`, although
   this option is not recommended for other databases.
   """
 
@@ -22,22 +22,16 @@ defmodule ChatWeb.ConnCase do
       # Import conveniences for testing with connections
       import Plug.Conn
       import Phoenix.ConnTest
-      import ChatWeb.ConnCase
+      import ChatzWeb.ConnCase
 
-      alias ChatWeb.Router.Helpers, as: Routes
+      alias ChatzWeb.Router.Helpers, as: Routes
 
       # The default endpoint for testing
-      @endpoint ChatWeb.Endpoint
+      @endpoint ChatzWeb.Endpoint
     end
   end
 
-  setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Chat.Repo)
-
-    unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Chat.Repo, {:shared, self()})
-    end
-
+  setup _tags do
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
 end

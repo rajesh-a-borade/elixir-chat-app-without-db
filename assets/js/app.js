@@ -11,7 +11,9 @@ import "../css/app.scss"
 //
 //     import {Socket} from "phoenix"
 import socket from "./socket"
-import ElxierChat from "./elixier_chat.js"
+//
 import "phoenix_html"
 
-ElxierChat.init(socket)
+import WaterCooler from "./water_cooler"
+
+WaterCooler.init(socket)

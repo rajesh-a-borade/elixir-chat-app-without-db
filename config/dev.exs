@@ -1,21 +1,12 @@
 use Mix.Config
 
-# Configure your database
-config :chat, Chat.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "chat_dev",
-  hostname: "localhost",
-  show_sensitive_data_on_connection_error: true,
-  pool_size: 10
-
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
 # The watchers configuration can be used to run external
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
-config :chat, ChatWeb.Endpoint,
+config :chatz, ChatzWeb.Endpoint,
   http: [port: 4000],
   debug_errors: true,
   code_reloader: true,
@@ -55,13 +46,13 @@ config :chat, ChatWeb.Endpoint,
 # different ports.
 
 # Watch static and templates for browser reloading.
-config :chat, ChatWeb.Endpoint,
+config :chatz, ChatzWeb.Endpoint,
   live_reload: [
     patterns: [
       ~r"priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
-      ~r"lib/chat_web/(live|views)/.*(ex)$",
-      ~r"lib/chat_web/templates/.*(eex)$"
+      ~r"lib/chatz_web/(live|views)/.*(ex)$",
+      ~r"lib/chatz_web/templates/.*(eex)$"
     ]
   ]
 

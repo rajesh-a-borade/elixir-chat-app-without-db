@@ -7,16 +7,13 @@
 # General application configuration
 use Mix.Config
 
-config :chat,
-  ecto_repos: [Chat.Repo]
-
 # Configures the endpoint
-config :chat, ChatWeb.Endpoint,
+config :chatz, ChatzWeb.Endpoint,
   url: [host: "localhost"],
-  secret_key_base: "7BMKlrKtkMa0PUdTPHZaKs1JGcVqs3rLswniO0to3y4cJcsaCa3Z2x2q7+OEj6jd",
-  render_errors: [view: ChatWeb.ErrorView, accepts: ~w(html json), layout: false],
-  pubsub_server: Chat.PubSub,
-  live_view: [signing_salt: "09ijpjqy"]
+  secret_key_base: "29oVeDNveGueeYnciaSL3qos16IpDZQ2jm9fjC14HQLW45T/HVvr8OTlP1tzKrJh",
+  render_errors: [view: ChatzWeb.ErrorView, accepts: ~w(html json), layout: false],
+  pubsub_server: Chatz.PubSub,
+  live_view: [signing_salt: "o9rOD5zt"]
 
 # Configures Elixir's Logger
 config :logger, :console,
